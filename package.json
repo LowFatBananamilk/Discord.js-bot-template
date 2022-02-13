@@ -1,0 +1,26 @@
+{
+  "name": "discord.js-bot-template",
+  "version": "1.0.0",
+  "description": "A simple Discord bot repository template i decided to make after having to make 2 in the past.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LowFatBananamilk/Discord.js-bot-template.git"
+  },
+  "author": "LowFatBananamilk",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/LowFatBananamilk/Discord.js-bot-template/issues"
+  },
+  "homepage": "https://github.com/LowFatBananamilk/Discord.js-bot-template#readme",
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-plugin-import": "^2.25.4"
+  },
+  "dependencies": {
+    "discord.js": "^13.6.0"
+  }
+}
