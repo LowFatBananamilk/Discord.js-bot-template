@@ -1,8 +1,7 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const fs = require('fs');
-
-const { clientId } = require('./config.json');
+const { discordClient } = require('./shared/discordClient');
 
 const commands = [];
 const commandFiles = fs
@@ -18,10 +17,15 @@ const rest = new REST({ version: '9' }).setToken(process.env.DISCORD_TOKEN);
 
 (async () => {
 	try {
+		const prevActivites = discordClient.user.presence.activities;
+		const prevStatus = discordClient.user.presence.status;
+		discordClient.user.setPresence({ activities: [{ name: 'Registering slash commands' }], status: 'idle' });
 		console.log('Started refreshing application (/) commands.');
 
-		await rest.put(Routes.applicationCommands(clientId), { body: commands });
+		await rest.put(Routes.applicationCommands(discordClient.user.id), { body: commands });
 
+
+		discordClient.user.setPresence({ activities: prevActivites, status: prevStatus });
 		console.log('Successfully reloaded application (/) commands.');
 	}
 	catch (error) {
