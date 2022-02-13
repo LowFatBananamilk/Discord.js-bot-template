@@ -2,11 +2,12 @@
 const { Client, Collection, Intents } = require('discord.js');
 const fs = require('fs');
 
-const { dataJsonPath } = require('./config.json');
+const { serverSettingsPath } = require('./config.json');
 
-if (!fs.existsSync(dataJsonPath)) {
-	console.log(`There is no "${dataJsonPath}". This might mean the data might have been lost!!`);
-	fs.writeFileSync(dataJsonPath, JSON.stringify({}, null, '\t'));
+// Check for JSON data files
+if (!fs.existsSync(serverSettingsPath)) {
+	console.log(`There is no "${serverSettingsPath}". This might mean the data might have been lost!!`);
+	fs.writeFileSync(serverSettingsPath, JSON.stringify({}, null, '\t'));
 	console.log('Created a new file..');
 }
 
