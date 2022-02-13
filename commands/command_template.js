@@ -2,8 +2,6 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 
 const servers = require('../datas/server_settings.json');
 
-let text;
-
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('hello')
@@ -11,9 +9,8 @@ module.exports = {
 
 	execute(interaction) {
 		const translationPath = servers[interaction.guildId] ? `../translations/${servers[interaction.guildId].language}.json` : '../translations/en.json';
-		const { ping } = require(translationPath);
-		text = ping;
+		const { hello } = require(translationPath);
 
-		interaction.reply(text.cotent);
+		interaction.reply(hello.content);
 	},
 };

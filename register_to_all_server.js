@@ -15,7 +15,7 @@ for (const file of commandFiles) {
 
 const rest = new REST({ version: '9' }).setToken(process.env.DISCORD_TOKEN);
 
-(async () => {
+discordClient.on('ready', async () => {
 	try {
 		const prevActivites = discordClient.user.presence.activities;
 		const prevStatus = discordClient.user.presence.status;
@@ -24,11 +24,13 @@ const rest = new REST({ version: '9' }).setToken(process.env.DISCORD_TOKEN);
 
 		await rest.put(Routes.applicationCommands(discordClient.user.id), { body: commands });
 
-
 		discordClient.user.setPresence({ activities: prevActivites, status: prevStatus });
 		console.log('Successfully reloaded application (/) commands.');
 	}
 	catch (error) {
 		console.error(error);
 	}
-})();
+});
+
+// Login to Discord with your client's token
+discordClient.login(process.env.DISCORD_TOKEN);

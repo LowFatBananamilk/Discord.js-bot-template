@@ -1,5 +1,9 @@
 {
-    "ping": {
+    "name": "English",
+    "hello": {
         "content": "Hello!"
+    },
+    "language": {
+        "set": "successfully set bot's language to `English`! 🇺🇸/🇬🇧"
     }
 }
