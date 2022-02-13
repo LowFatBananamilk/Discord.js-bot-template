@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/LowFatBananamilk/Discord.js-bot-template#readme",
   "devDependencies": {
+    "@discordjs/rest": "^0.3.0",
     "eslint": "^8.9.0",
     "eslint-plugin-import": "^2.25.4"
   },

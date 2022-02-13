@@ -1,3 +1,5 @@
 {
-    "serverSettingsPath": "./datas/server_settings.json"
+    "serverSettingsPath": "./datas/server_settings.json",
+    "clientId": "[Your client ID]",
+    "test_servers": [ "[Test server to register commands to]" ]
 }
