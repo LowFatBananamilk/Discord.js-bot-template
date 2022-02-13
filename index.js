@@ -1,6 +1,6 @@
 // Require the necessary discord.js classes
-const { Client, Collection, Intents } = require('discord.js');
 const fs = require('fs');
+const { discordClient, collection } = require('./shared/discordClient');
 
 const { serverSettingsPath } = require('./config.json');
 
@@ -11,12 +11,8 @@ if (!fs.existsSync(serverSettingsPath)) {
 	console.log('Created a new file..');
 }
 
-// Create a new client instance
-const allIntents = new Intents(32767);
-const discordClient = new Client({ intents: allIntents });
-
 // Reading command files
-discordClient.commands = new Collection();
+discordClient.commands = new collection();
 const commandFiles = fs.readdirSync('./commands').filter((file) => file.endsWith('.js'));
 
 for (const file of commandFiles) {
