@@ -105,4 +105,4 @@ dist
 
 
 # Added
-.datas/
+datas/server_settings.json
